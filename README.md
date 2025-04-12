@@ -1,6 +1,3 @@
-### 📄 `README.md`
-
-```markdown
 # BrgyEase Application Portal
 
 BrgyEase is a simple web-based application system for barangay applicants, featuring a clean admin dashboard and CRUD operations for managing applications.
@@ -28,7 +25,6 @@ BrgyEase is a simple web-based application system for barangay applicants, featu
 - HTML, CSS (with Bootstrap for styling)
 
 ## 📸 Screenshots
-![Uploading image.png…]()
 
 _Add your screenshots here if available._
 
