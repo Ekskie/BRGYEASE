@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrgyEase - Home</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <!-- Feather Icons (similar to Lucide) -->
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+  <div class="brgyease-container">
+    <div class="brgyease-sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h1 class="sidebar-title" id="sidebar-title">BrgyEase</h1>
+        <button class="sidebar-toggle" id="sidebar-toggle">
+          <i data-feather="x"></i>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="sidebar-item active">
+          <i data-feather="home" class="sidebar-icon"></i>
+          <span class="sidebar-label">Home</span>
+        </a>
+        <a href="/apply_page" class="sidebar-item">
+          <i data-feather="file-text" class="sidebar-icon"></i>
+          <span class="sidebar-label">Apply for Clearance</span>
+        </a>
+        <a href="/organization_page" class="sidebar-item">
+          <i data-feather="users" class="sidebar-icon"></i>
+          <span class="sidebar-label">Organization</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="sidebar-item">
+          <i data-feather="log-out" class="sidebar-icon"></i>
+          <span class="sidebar-label">Logout</span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="brgyease-main">
+      <div class="mobile-header">
+        <button class="btn btn-icon" id="mobile-menu">
+          <i data-feather="menu"></i>
+        </button>
+        <h1 class="sidebar-title">BrgyEase</h1>
+      </div>
+      
+      <div class="banner">
+        <h1 class="banner-title">Welcome to BrgyEase</h1>
+        <p class="banner-text">
+          Your digital platform for seamless barangay clearance applications and other services
+        </p>
+        <div class="banner-actions">
+          <a href="/apply_page" class="btn btn-outline" style="background-color: white; color: var(--primary);">
+            Apply for Clearance
+          </a>
+          <a href="/admin" class="btn btn-outline" style="border-color: white; color: white;">
+            Dashboard
+          </a>
+        </div>
+      </div>
+      
+      <div class="page-content">
+        <section class="section">
+          <h2 class="section-title">How It Works</h2>
+          
+          <div class="grid grid-3">
+            <div class="card text-center">
+              <div class="feature-icon">
+                <i data-feather="file-text" style="color: var(--primary);"></i>
+              </div>
+              <h3 class="feature-title">1. Fill out the form</h3>
+              <p>Complete the online application with your personal information</p>
+            </div>
+            
+            <div class="card text-center">
+              <div class="feature-icon">
+                <i data-feather="clock" style="color: var(--primary);"></i>
+              </div>
+              <h3 class="feature-title">2. Wait for approval</h3>
+              <p>Our staff will review your application within 24-48 hours</p>
+            </div>
+            
+            <div class="card text-center">
+              <div class="feature-icon">
+                <i data-feather="download" style="color: var(--primary);"></i>
+              </div>
+              <h3 class="feature-title">3. Get your clearance</h3>
+              <p>Download your clearance or pick up the physical copy at our office</p>
+            </div>
+          </div>
+        </section>
+        
+        <section class="section">
+          <h2 class="section-title">Benefits</h2>
+          
+          <div class="grid grid-2">
+            <div class="benefit">
+              <div class="benefit-icon">
+                <i data-feather="check-circle"></i>
+              </div>
+              <div>
+                <h3 class="benefit-title">Convenient Application</h3>
+                <p>Apply for your clearance anytime, anywhere without visiting the barangay office</p>
+              </div>
+            </div>
+            
+            <div class="benefit">
+              <div class="benefit-icon">
+                <i data-feather="check-circle"></i>
+              </div>
+              <div>
+                <h3 class="benefit-title">Faster Processing</h3>
+                <p>Digital applications are processed more quickly than paper forms</p>
+              </div>
+            </div>
+            
+            <div class="benefit">
+              <div class="benefit-icon">
+                <i data-feather="check-circle"></i>
+              </div>
+              <div>
+                <h3 class="benefit-title">Status Tracking</h3>
+                <p>Monitor your application status in real-time through your dashboard</p>
+              </div>
+            </div>
+            
+            <div class="benefit">
+              <div class="benefit-icon">
+                <i data-feather="check-circle"></i>
+              </div>
+              <div>
+                <h3 class="benefit-title">Secure Storage</h3>
+                <p>Your data and documents are safely stored in our secure system</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      
+      <div class="cta">
+        <h2 class="cta-title">Ready to get started?</h2>
+        <p class="cta-text">
+          Apply for your barangay clearance today and experience the convenience of our digital system
+        </p>
+        <a href="/apply_page" class="btn btn-primary">
+          Apply Now
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Feather icons
+    feather.replace();
+    
+    // Sidebar toggle functionality
+    const sidebar = document.getElementById('sidebar');
+    const sidebarTitle = document.getElementById('sidebar-title');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('sidebar-collapsed');
+      if (sidebar.classList.contains('sidebar-collapsed')) {
+        sidebarTitle.textContent = 'BE';
+        sidebarToggle.innerHTML = '<i data-feather="menu"></i>';
+      } else {
+        sidebarTitle.textContent = 'BrgyEase';
+        sidebarToggle.innerHTML = '<i data-feather="x"></i>';
+      }
+      feather.replace();
+    });
+    
+    mobileMenu.addEventListener('click', () => {
+      sidebar.classList.toggle('sidebar-visible');
+    });
+    
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768 && 
+          !sidebar.contains(e.target) && 
+          !mobileMenu.contains(e.target) &&
+          sidebar.classList.contains('sidebar-visible')) {
+        sidebar.classList.remove('sidebar-visible');
+      }
+    });
+  </script>
+</body>
+</html>

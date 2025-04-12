@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrgyEase - Apply for Clearance</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <!-- Feather Icons (similar to Lucide) -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+    <div class="brgyease-container">
+        <div class="brgyease-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1 class="sidebar-title" id="sidebar-title">BrgyEase</h1>
+                <button class="sidebar-toggle" id="sidebar-toggle">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/" class="sidebar-item ">
+                    <i data-feather="home" class="sidebar-icon"></i>
+                    <span class="sidebar-label">Home</span>
+                </a>
+                <a href="/apply_page" class="sidebar-item active">
+                    <i data-feather="file-text" class="sidebar-icon"></i>
+                    <span class="sidebar-label">Apply for Clearance</span>
+                </a>
+                <a href="/organization_page" class="sidebar-item">
+                    <i data-feather="users" class="sidebar-icon"></i>
+                    <span class="sidebar-label">Organization</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="sidebar-item">
+                    <i data-feather="log-out" class="sidebar-icon"></i>
+                    <span class="sidebar-label">Logout</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="brgyease-main">
+            <div class="mobile-header">
+                <button class="btn btn-icon" id="mobile-menu">
+                    <i data-feather="menu"></i>
+                </button>
+                <h1 class="sidebar-title">BrgyEase</h1>
+            </div>
+
+            <div class="page-header">
+                <h1 class="header-title">Apply for Barangay Clearance</h1>
+            </div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              <div id="flash-message" class="notification">
+                {% for category, message in messages %}
+                  <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endwith %}
+            <div class="page-content">
+                <div class="card">
+                    <h2 class="section-title" style="margin-top: 0;">Barangay Clearance Application Form</h2>
+
+                <form action="/apply" method="POST" enctype="multipart/form-data" id="clearanceForm" class="form">
+                        <div class="grid grid-2" style="gap: 1rem;">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" id="firstName" class="form-input" name="firstName" placeholder="Juan" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Dela Cruz" required>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-2" style="gap: 1rem;">
+                            <div class="form-group">
+                                <label for="age" class="form-label">Age</label>
+                                <input type="number" id="age" class="form-input" name="age" placeholder="21" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-input" name="email" placeholder="brgyease@email.com" required>
+                            </div>
+                        </div>
+
+
+                        <div class="grid grid-2" style="gap: 1rem;">
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" class="form-input" name="phone" placeholder="(+63) 9123456789" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthdate" class="form-label">Date of Birth</label>
+                                <input type="date" id="birthdate" class="form-input" name="birthdate" required>
+                            </div>
+                        </div>
+                        <div class="grid grid-2" style="gap: 1rem;">
+
+                            <div class="form-group">
+                                <label for="sex" class="form-label">Sex</label>
+                                <select id="sex" class="form-select" name="sex" required>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Status" class="form-label">Status</label>
+                                <select id="Status" class="form-select" name="Status" required>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Widowed">Widowed</option>
+                                    <option value="Divorced">Divorced</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="idPhoto" class="form-label">Valid ID (Upload Photo)</label>
+                            <input type="file" id="idPhoto" accept="image/*" name="idPhoto" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-checkbox">
+                                <input type="checkbox" required>
+                                <span>I hereby certify that all information provided above is true and correct.</span>
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+
+        // Sidebar toggle functionality
+        const sidebar = document.getElementById('sidebar');
+        const sidebarTitle = document.getElementById('sidebar-title');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-collapsed');
+            if (sidebar.classList.contains('sidebar-collapsed')) {
+                sidebarTitle.textContent = 'BE';
+                sidebarToggle.innerHTML = '<i data-feather="menu"></i>';
+            } else {
+                sidebarTitle.textContent = 'BrgyEase';
+                sidebarToggle.innerHTML = '<i data-feather="x"></i>';
+            }
+            feather.replace();
+        });
+
+        mobileMenu.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-visible');
+        });
+
+        // Purpose field handling
+        const purposeSelect = document.getElementById('purpose');
+        const otherPurposeField = document.getElementById('otherPurpose');
+
+        purposeSelect.addEventListener('change', function () {
+            if (this.value === 'other') {
+                otherPurposeField.required = true;
+                otherPurposeField.disabled = false;
+            } else {
+                otherPurposeField.required = false;
+                otherPurposeField.disabled = true;
+                otherPurposeField.value = '';
+            }
+        });
+    </script>
+</body>
+
+</html>
