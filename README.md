@@ -1,3 +1,6 @@
+# VISIT ONLINE 
+https://brgyease.vercel.app/
+
 # BrgyEase Application Portal
 
 BrgyEase is a simple web-based application system for barangay applicants, featuring a clean admin dashboard and CRUD operations for managing applications.
@@ -14,7 +17,7 @@ BrgyEase is a simple web-based application system for barangay applicants, featu
   - View application statistics (Pending, Approved, Rejected)
   - Approve, reject, edit, or delete applicants
 - ✅ Flash message notifications on all actions
-- 🧠 Fully server-rendered (no AJAX)
+- 🧠 Fully server-rendered
 - 📁 Uploaded files saved under `static/uploads`
 
 ## 🛠️ Built With
@@ -22,11 +25,7 @@ BrgyEase is a simple web-based application system for barangay applicants, featu
 - Python 3
 - Flask
 - MySQL (via `flask-mysqldb`)
-- HTML, CSS (with Bootstrap for styling)
-
-## 📸 Screenshots
-
-_Add your screenshots here if available._
+- HTML, CSS, JS
 
 ## 🗃️ Database Schema
 
@@ -110,14 +109,7 @@ brgyease/
 
 - Flash messages are used for user feedback and require a `secret_key`, which is already set in `app.py`.
 - File uploads are saved to `static/uploads`, make sure this folder exists.
-- Page updates use full reloads with Flask routes—no AJAX is used.
-
-## ✨ Future Features (Suggestions)
-
-- Login system for admins
-- Search/filtering for applicants
-- Email notifications
-- Export applications as PDF or Excel
+- Page updates use full reloads with Flask routes.
 
 ## 📧 Contact
 
